@@ -1,0 +1,48 @@
+# follow manual steps to install Full software 
+1. clone the repo
+	git clone https://github.com/VacusTechnology/AstraDeployment.git
+
+#to create database for backend, just enter below command
+ 1. sudo mysql -u root 
+ 2. CREATE DATABASE vacusdb;
+ 3. CREATE USER 'astra'@'localhost' IDENTIFIED BY 'astra';
+ 4. GRANT ALL PRIVILEGES ON vacusdb.* TO 'vacus'@'localhost';
+ 5. FLUSH PRIVILEGES;  
+ exit   
+
+
+# to setup backend server go to directory called backend and run following command
+ - python3 manage.py makemigrations
+ - python3 manage.py migrate
+ - python3 manage.py runserver 0.0.0.0:8000
+ - then exit (Ctrl+c)
+ - python3 manage.py collectstatic
+ 
+ - move all css, js, media directory from frontend/build/static to /backend/static/ 
+ - create directory index into /backend/static/ and move or copy index.html file from frontend/build/ to /backend/static/index/
+ - move images directory from /frontend/build/ to /backend/   
+ 
+# to create uwsgi service copy uwsgi.sh file and uwsgi.service just enter below commands
+ 1. cp /services/uwsgi.sh /usr/bin/
+ 2. sudo chmod +x /usr/bin/uwsgi.sh
+ 3. cp /services/uwsgi.service /etc/systemd/system/ 
+ 4. sudo systemctl start uwsgi.service # starting the uwsgi.serice 
+ 5. sudo systemctl status uwsgi.service # check the serice is running or not 
+ 
+ 
+# to create nginx service replace nginx.conf, just enter below command 
+ 1. mv /nginx/nginx.conf /etc/nginx/ 
+ 2. sudo systemctl restart nginx.service # restarting the nginx service 
+ 3. sudo systemctl status nginx.service # check the nginx se
+ 3. to test frontend type ip of instance on browser 	
+
+# to store logs 
+ 1. sudo pip3 install --ignore-installed PyYAML	
+ 1. create new directory logs into / 
+ 2. cp /services/logging_tracking.yaml /logs/ 
+ 3. create new directory tracking into /logs/
+ 4. create file log.log into /logs/tracking/
+
+
+
+# change time zone to Asia/Kolkata

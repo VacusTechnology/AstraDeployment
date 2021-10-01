@@ -1,0 +1,13 @@
+cd /etc/systemd/system
+sudo nano uwsgi.service //add
+[Unit]
+Description=UWSGI SYSTEMD SERVICE
+
+[Service]
+ExecStart = /bin/sh /usr/bin/uwsgi.sh
+
+Restart=on-failure
+User=ec2-user
+Type=notify
+StandardError=syslog
+NotifyAccess=all
