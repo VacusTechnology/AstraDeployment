@@ -4,7 +4,7 @@
 
 #to create database for backend, just enter below command
  1. sudo mysql -u root 
- 2. CREATE DATABASE vacusdb;
+ 2. CREATE DATABASE vacusdb;                                                  
  3. CREATE USER 'astra'@'localhost' IDENTIFIED BY 'astra';
  4. GRANT ALL PRIVILEGES ON vacusdb.* TO 'vacus'@'localhost';
  5. FLUSH PRIVILEGES;  
@@ -36,12 +36,6 @@
  3. sudo systemctl status nginx.service # check the nginx se
  3. to test frontend type ip of instance on browser 	
 
-# to store logs 
- 1. sudo pip3 install --ignore-installed PyYAML	
- 1. create new directory logs into / 
- 2. cp /services/logging_tracking.yaml /logs/ 
- 3. create new directory tracking into /logs/
- 4. create file log.log into /logs/tracking/
 
 
 
