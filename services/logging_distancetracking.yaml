@@ -8,7 +8,7 @@ handlers:
     class: logging.handlers.TimedRotatingFileHandler
     level: INFO
     formatter: simple
-    filename: /home/ec2-user/aw/logs/distance_tracking/log.log
+    filename: /home/ec2-user/logs/distance_tracking/log.log
     when: "D"
     interval: 1
     backupCount: 7

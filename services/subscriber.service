@@ -4,7 +4,7 @@ Description= Subscriber service
 [Service]
 Type=simple
 User=ec2-user
-ExecStart=/usr/bin/python3 /home/ubuntu/subscriber/trackingData.py
+ExecStart=/usr/bin/python3 /home/ec2-user/subscriber/trackingData.py
 Restart=on-failure
 
 [Install]

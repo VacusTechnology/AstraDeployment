@@ -8,7 +8,7 @@ handlers:
     class: logging.handlers.TimedRotatingFileHandler
     level: INFO
     formatter: simple
-    filename: /home/ec2-user/aw/logs/error/log.log
+    filename: /home/ec2-user/logs/error/log.log
     when: "D"
     interval: 1
     backupCount: 7
