@@ -17,7 +17,7 @@
  - python3 manage.py runserver 0.0.0.0:8000
  - then exit (Ctrl+c)
  - python3 manage.py collectstatic
- 
+ - python3 manage.py createsuperuser (to create user and password)
  - move all css, js, media directory from frontend/build/static to /backend/static/ 
  - create directory index into /backend/static/ and move or copy index.html file from frontend/build/ to /backend/static/index/
  - move images directory from /frontend/build/ to /backend/   
