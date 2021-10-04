@@ -1,2 +1,2 @@
 # AstraDeployment
-Repository for deployment for  AstarZeneca
+Repository for deployment for AstraZeneca Web portal

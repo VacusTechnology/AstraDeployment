@@ -34,7 +34,7 @@
  1. mv /services/nginx.conf /etc/nginx/
  2. sudo systemctl restart nginx.service # restarting the nginx service 
  3. sudo systemctl status nginx.service # check the nginx se
- 3. to test frontend type ip of instance on browser 	
+ 4. to test frontend type ip of instance on browser
 
 
 
