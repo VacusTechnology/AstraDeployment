@@ -7,9 +7,11 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 import yaml
+import logging
 import logging.config
 
 from tables import *
+logger = logging.getLogger(__name__)
 
 engine = create_engine(
     "mysql+pymysql://vacus:vacus@127.0.0.1/vacusdb", echo=False)
@@ -22,7 +24,7 @@ topic = "tracking"
 
 
 def on_message(client, userdata, message):
-    #logger.info("Data received")
+    logger.info("Data received")
     serializedJson = message.payload.decode('utf-8')
     jsonData = json.loads(serializedJson)
     storeData(jsonData)
@@ -138,13 +140,13 @@ def storeData(jsonData):
 
 
 def on_connect(client, userdata, flags, rc):
-    # logger.info("Connected to broker")
+    logger.info("Connected to broker")
     client.subscribe(topic)  # subscribe topic test
 
 
 def on_disconnect(client, userdata, rc):
     if rc != 0:
-        # logger.info("Disconnection from broker, Reconnecting...")
+        logger.info("Disconnection from broker, Reconnecting...")
         systemcon()
         client.subscribe(topic)  # subscribe topic test
 
@@ -157,7 +159,7 @@ def systemcon():
         st = 1
     finally:
         if (st != 0):
-            # logger.info("Connection failed, Reconnecting...")
+            logger.info("Connection failed, Reconnecting...")
             time.sleep(5)
             systemcon()
 

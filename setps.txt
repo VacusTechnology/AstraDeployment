@@ -6,7 +6,7 @@
  1. sudo mysql -u root 
  2. CREATE DATABASE vacusdb;                                                  
  3. CREATE USER 'astra'@'localhost' IDENTIFIED BY 'astra';
- 4. GRANT ALL PRIVILEGES ON vacusdb.* TO 'vacus'@'localhost';
+ 4. GRANT ALL PRIVILEGES ON vacusdb.* TO 'astra'@'localhost';
  5. FLUSH PRIVILEGES;  
  exit   
 
@@ -33,7 +33,7 @@
 # to create nginx service replace nginx.conf, just enter below command 
  1. mv /services/nginx.conf /etc/nginx/
  2. sudo systemctl restart nginx.service # restarting the nginx service 
- 3. sudo systemctl status nginx.service # check the nginx se
+ 3. sudo systemctl status nginx.service
  4. to test frontend type ip of instance on browser
 
 

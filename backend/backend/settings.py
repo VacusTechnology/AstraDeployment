@@ -18,7 +18,7 @@ ALLOWED_HOSTS = ['*']
 # #Hndle session is not json serializable
 # SESSION_SERIALIZER ='django.contrib.sessions.serializers.PickleSerializer'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-#SESSION_COOKIE_AGE = 900
+SESSION_COOKIE_AGE = 900
 
 
 # auto logout delay in minutes
