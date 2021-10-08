@@ -1,5 +1,4 @@
 from django.shortcuts import render
-
 import datetime
 from django.shortcuts import render
 
@@ -26,4 +25,5 @@ class Alerts(APIView):
             return Response(alertSerializer.data, status=status.HTTP_200_OK)
 
         except Exception as err:
+            print(err)
             return Response(status=status.HTTP_400_BAD_REQUEST)

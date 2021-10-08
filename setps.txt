@@ -4,7 +4,7 @@
 
 #to create database for backend, just enter below command
  1. sudo mysql -u root 
- 2. CREATE DATABASE vacusdb;                                                  
+ 2. CREATE DATABASE vacusdb;
  3. CREATE USER 'astra'@'localhost' IDENTIFIED BY 'astra';
  4. GRANT ALL PRIVILEGES ON vacusdb.* TO 'astra'@'localhost';
  5. FLUSH PRIVILEGES;  
@@ -26,8 +26,8 @@
  1. cp /services/uwsgi.sh /usr/bin/
  2. sudo chmod +x /usr/bin/uwsgi.sh
  3. cp /services/uwsgi.service /etc/systemd/system/ 
- 4. sudo systemctl start uwsgi.service # starting the uwsgi.serice 
- 5. sudo systemctl status uwsgi.service # check the serice is running or not 
+ 4. sudo systemctl start uwsgi.service # starting the uwsgi.service
+ 5. sudo systemctl status uwsgi.service # check the service is running or not
  
  
 # to create nginx service replace nginx.conf, just enter below command 
