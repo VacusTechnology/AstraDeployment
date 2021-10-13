@@ -216,6 +216,5 @@ class ZoneTracking(Base):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     zoneid_id = Column(ForeignKey(zones_zones.id, ondelete='CASCADE'))
-    tagid_id = Column(ForeignKey(
-        employee_registration.id, ondelete='CASCADE'))
+    tagid_id = Column(ForeignKey(employee_registration.id, ondelete='CASCADE'))
     timestamp = Column(DateTime(timezone=True), server_default=func.now())

@@ -1,0 +1,28 @@
+1. Install PyYAML (sudo pip3 install --ignore-installed PyYAML)
+2. make distance_tracking, error and tracking directories in /root/AstraDeployment/logs/
+3. create log.log file in /root/AstraDeployment/logs/distance_tracking/
+4. create log.log file in /root/AstraDeployment/logs/error/
+5. create log.log file in /root/AstraDeployment/logs/tracking/
+6. give write permission to all log.log(sudo chmod +w log.log)
+7. move subscriber.service file from /root/AstraDeployment/subscriber/ to /etc/systemd/system/
+8. to enable services follow below command
+    sudo systemctl start subscriber.service
+    
+9. Set cron services
+   to set cron services follow below commands
+   9.1. crontab -e
+   9.2. copy following
+      58 23 * * * /usr/bin/python3 /root/AstraDeployment/utils/temphumid.py
+      58 23 * * * /usr/bin/python3 /root/AstraDeployment/utils/iaq.py
+      58 23 * * * /usr/bin/python3 /root/AstraDeployment/utils/zoneTracking.py
+      58 23 * * * /usr/bin/python3 /root/AstraDeployment/utils/tagDeallocation.py
+      58 23 * * * /usr/bin/python3 /root/AstraDeployment/subscriber/distanceCalculation.py
+
+      02 00 * * * /usr/bin/python3 /root/AstraDeployment/utils/dailydatadeletion.py
+      02 00 1 * * /usr/bin/python3 /root/AstraDeployment/utils/monthlydatadeletion.py
+   
+   9.3. sudo systemctl daemon-reload
+   9.4. sudo systemctl restart cron.service
+
+   Note: if in case cron services not work please check how to set/create cron services on rhel 
+   

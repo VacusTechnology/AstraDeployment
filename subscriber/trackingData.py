@@ -7,14 +7,12 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 import yaml
-import logging
 import logging.config
 
 from tables import *
-logger = logging.getLogger(__name__)
 
 engine = create_engine(
-    "mysql+pymysql://vacus:vacus@127.0.0.1/vacusdb", echo=False)
+    "mysql+pymysql://astra:Astra@123@127.0.0.1/vacusdb", echo=False)
 Session = sessionmaker(bind=engine)
 session = Session()
 Base = declarative_base()
@@ -32,7 +30,6 @@ def on_message(client, userdata, message):
 
 def storeData(jsonData):
     try:
-        print(jsonData)
         timeStamp = datetime.datetime.now()
 
         masterid = jsonData["master"]
@@ -106,7 +103,7 @@ def storeData(jsonData):
                     pass
 
                 """ Retrieveing IRQ sensor object """
-                iaq = session.query(sensor_iaq).filter(
+                iaq = session.query(sensor_irq).filter(
                     sensor_iaq.macid == elem["macaddress"]).first()
                 if iaq:
                     """ Updating lastseen and battery status"""
@@ -135,8 +132,7 @@ def storeData(jsonData):
                     pass
 
     except Exception as err:
-        print(err)
-       # logger.info("Error: ", str(err))
+        logger.info("Error: ", str(err))
 
 
 def on_connect(client, userdata, flags, rc):
@@ -166,10 +162,10 @@ def systemcon():
 
 if __name__ == "__main__":
 
-    # with open('/home/ec2-user/logs/logging_tracking.yaml', 'r') as stream:
-    #     logger_config = yaml.load(stream, yaml.FullLoader)
-    # logging.config.dictConfig(logger_config)
-    # logger = logging.getLogger('Tracking -')
+    with open('/root/AstraDeployment/logs/logging_tracking.yaml', 'r') as stream:
+        logger_config = yaml.load(stream, yaml.FullLoader)
+    logging.config.dictConfig(logger_config)
+    logger = logging.getLogger('Tracking -')
 
     client = paho.Client()  # create client object
     client.on_connect = on_connect

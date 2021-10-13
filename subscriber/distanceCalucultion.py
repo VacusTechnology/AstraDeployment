@@ -105,7 +105,7 @@ def distance_calculation():
 
 if __name__ == '__main__':
 
-	with open('/home/ubuntu/logs/logging_error.yaml', 'r') as stream:
+	with open('/root/AstraDeployment/logs/logging_error.yaml', 'r') as stream:
         logger_config = yaml.load(stream, yaml.FullLoader)
     logging.config.dictConfig(logger_config)
     logger = logging.getLogger('DistanceCalculation -')
