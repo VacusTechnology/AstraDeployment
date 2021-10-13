@@ -1,4 +1,7 @@
 1. Install PyYAML (sudo pip3 install --ignore-installed PyYAML)
+_____________________________________________________________________________________
+Note: follow the steps 2,3,4,5  only if folders are not created as per the given path
+_____________________________________________________________________________________
 2. make distance_tracking, error and tracking directories in /root/AstraDeployment/logs/
 3. create log.log file in /root/AstraDeployment/logs/distance_tracking/
 4. create log.log file in /root/AstraDeployment/logs/error/
