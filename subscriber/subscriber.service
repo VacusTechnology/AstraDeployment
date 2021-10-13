@@ -1,0 +1,11 @@
+[Unit]
+Description= Subscriber service
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 /root/AstraDeployment/subscriber/trackingData.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
