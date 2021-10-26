@@ -103,7 +103,7 @@ def storeData(jsonData):
                     pass
 
                 """ Retrieveing IRQ sensor object """
-                iaq = session.query(sensor_irq).filter(
+                iaq = session.query(sensor_iaq).filter(
                     sensor_iaq.macid == elem["macaddress"]).first()
                 if iaq:
                     """ Updating lastseen and battery status"""
